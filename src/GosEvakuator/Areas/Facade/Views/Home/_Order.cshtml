@@ -1,0 +1,51 @@
+﻿@model GosEvakuator.Models.HomeViewModels.OrderViewModel
+
+<form class="order__form" name="order" asp-area="Facade" asp-controller="Home" asp-action="Order">
+    <p class="order__form-field bottom-line clearfix">
+        <label class="order__form-phone-number" asp-for="CustomerPhoneNumber">Номер телефона:</label>
+        <input class="order__form-phone-number-value" asp-for="CustomerPhoneNumber" name="customer-phone-number" type="tel" placeholder="+7(___)___-__-__">
+    </p>
+
+    <p class="order__form-field bottom-line clearfix">
+        <label class="order__form-vehicle" for="order__form-vehicle-field">Что перевезти:</label>
+        <select class="order__form-vehicle-value" id="order__form-vehicle-field" name="vehicle">
+            @foreach (var item in Model.Pricelist.Items)
+            {
+                @if (@item.Equals(@Model.Pricelist.GetDefaultedPricelistItem()))
+                {
+                    <option value="@item.Alias" price="@item.Serialize()" selected>@item.Name</option>
+                }
+                else
+                {
+                    <option value="@item.Alias" price="@item.Serialize()">@item.Name</option>
+                }
+            }
+        </select>
+    </p>
+
+    <p class="clearfix">
+        <input type="checkbox" name="steering-lock" id="steering-lock-field" class="order__form-steering-lock-input">
+        <label for="steering-lock-field" class="order__form-steering-lock">Блокировка руля</label>
+
+        <input type="checkbox" name="wheel-lock" id="wheel-lock-field" class="order__form-wheel-lock-input">
+        <label for="wheel-lock-field" class="order__form-wheel-lock">Блокировка колес</label>
+    </p>
+
+    <div class="clearfix">
+        <div class="order__form-total-price">
+            <b class="order__form-total-price-value">@Model.Pricelist.GetDefaultedPricelistItem().LoadingVehicle</b>
+            <span class="order__form-total-price-currency">₽</span>
+        </div>
+
+        <div class="order__form-action">
+            <span class="order__form-action-percent">@Model.Pricelist.GetDefaultedPricelistItem().Discount<span class="sign">%</span></span>
+            <span class="order__form-action-name">Акция</span>
+            <span class="order__form-adtion-annotation">в пределах района</span>
+        </div>
+    </div>
+
+    <div class="order__form-submit-layout">
+        <input class="order__form-submit btn" type="submit" value="Вызвать эвакуатор">
+        <label for="order__form-submit-field"></label>
+    </div>
+</form>

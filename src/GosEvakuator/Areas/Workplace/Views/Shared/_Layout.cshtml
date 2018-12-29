@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <meta name="yandex-verification" content="da866f1cb0005d6a" />
+        <meta name="google-site-verification" content="T4Hp60n0tMavW2Gb1tzHXXnL7QfWXVgI8LhrYcwmDG4" />
+        <title>Вызвать дешево ГОСЭВАКУАТОР в @ViewData["Title"]. Цены.</title>
+
+        <link rel="stylesheet" href="~/css/normalize.css" />
+        <environment names="Development">
+            <link rel="stylesheet" href="~/css/style.css" />
+        </environment>
+        <environment names="Staging,Production">
+            <link rel="stylesheet" href="~/css/style.min.css" asp-append-version="true" />
+        </environment>
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700%7CRoboto:400,400i,700&amp;subset=cyrillic" rel="stylesheet">
+        <link rel="shortcut icon" href="~/img/favicon.ico" type="image/x-icon">
+        @Html.Raw(snippet.FullScript)
+    </head>
+    <body>
+         @RenderBody()
+    <environment names="Development">
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+        <script src="~/lib/inputmask/dist/jquery.inputmask.bundle.js"></script>
+
+        <script src="~/js/script.js"></script>
+    </environment>
+    <environment names="Staging,Production">
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+        <script src="~/lib/inputmask/dist/min/jquery.inputmask.bundle.min.js"></script>
+
+        <script src="~/js/script.min.js"></script>
+    </environment>
+        @RenderSection("scripts", required: false)
+    </body>
+</html>

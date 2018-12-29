@@ -1,0 +1,12 @@
+﻿@model GosEvakuator.Models.HomeViewModels.CalculateViewModel
+
+<form class="calculate__form" name="calculate" asp-controller="Home" asp-action="Calculate">
+    <p class="calculate__form-field bottom-line clearfix">
+        <label class="calculate__form-phone-number" asp-for="CustomerPhoneNumber">Номер телефона:</label>
+        <input class="calculate__form-phone-number-value" asp-for="CustomerPhoneNumber" name="customer-phone-number" type="tel" placeholder="+7(___)___-__-__">
+    </p>
+    <div class="calculate__form-submit-layout">
+        <input class="calculate__form-submit btn" type="submit" value="Отправить расчет" id="calculate__form-submit-field">
+        <label for="calculate__form-submit-field"></label>
+    </div>
+</form>

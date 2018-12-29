@@ -1,0 +1,63 @@
+@model GosEvakuator.Models.City
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create</h2>
+
+<form asp-action="Create">
+    <div class="form-horizontal">
+        <h4>City</h4>
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="Domen" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Domen" class="form-control" />
+                <span asp-validation-for="Domen" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Name" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="PrepositionalName" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="PrepositionalName" class="form-control" />
+                <span asp-validation-for="PrepositionalName" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Area" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Area" class="form-control" />
+                <span asp-validation-for="Area" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="PrepositionalArea" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="PrepositionalArea" class="form-control" />
+                <span asp-validation-for="PrepositionalArea" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

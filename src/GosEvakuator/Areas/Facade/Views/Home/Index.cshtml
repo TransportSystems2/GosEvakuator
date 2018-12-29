@@ -1,0 +1,230 @@
+﻿@model GosEvakuator.Models.HomeViewModels.HomeViewModel
+<div itemscope itemtype="http://schema.org/LocalBusiness">
+    <meta itemprop="priceRange" content="@Model.SelectedPricelistItem.LoadingVehicle - @(Model.SelectedPricelistItem.LoadingVehicle * 3)">
+    <meta itemprop="image" content="http://gosevak.ru/img/evacuator-with-winch.jpg">
+    <div class="main-header-layout">
+        <header class="main-header container">
+            <a class="main-header__title">
+                <p class="main-header__title-text" itemprop="name">ГОСЭВАКУАТОР</p>
+                <p class="main-header__title-city" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+                    <span itemprop="addressLocality">@Model.CityName</span>
+                    <meta itemprop="addressRegion" content="@Model.AreaName область">
+                </p>
+            </a>
+            <div class="main-header__contact">
+                <p>Эвакуатор <time itemprop="openingHours" datetime="Mo-Su">круглосуточно</time></p>
+                <a class="main-header__contact-phone" href="tel:@Model.PhoneNumber">
+                    <span itemprop="telephone" content="@Model.PhoneNumber">@Model.FormattedPhoneNumber</span>
+                </a>
+                <p itemprop="paymentAccepted">Оплата по наличному и безналичному расчету</p>
+            </div>
+            <ul class="main-header__user-block">
+                <li><a href="#services">Услуги</a></li>
+                <li><a href="#calculate">Цены</a></li>
+                <li><a href="#reviews">Отзывы</a></li>
+            </ul>
+        </header>
+    </div>
+    <main itemscope itemtype="http://schema.org/Product">
+        <div class="order-layout bottom-line">
+            <div class="container">
+                <section class="order" >
+                    <h2 class="order__title section-title" itemprop="name">Вызвать эвакуатор</h2>
+                    <span class="order__description">Прямо сейчас онлайн:</span>
+
+                    @{ await Html.RenderPartialAsync("_Order", Model.OrderViewModel); }
+
+                    <div class="order__guarantee">
+                        <b class="order__guarantee-title">Гарантия низкой цены!</b>
+                        <p>
+                            <span class="order__guarantee-price-from-other">Цена у всех:</span>
+                            <span class="order__guarantee-price-from-other-value">@Model.SelectedPricelistItem.LoadingVehicleFromOther</span><span> р.*</span>
+                        </p>
+                        <p itemprop="offers" itemscope itemtype="http://schema.org/AggregateOffer">
+                            <span class="order__guarantee-price">Цена у нас:</span>
+                            <span class="order__guarantee-price-value" itemprop="lowPrice">@Model.SelectedPricelistItem.LoadingVehicle</span><span> р.*</span>
+                            <meta itemprop="priceCurrency" content="RUB">
+                        </p>
+                        <span>* - внутри одного района</span>
+                    </div>
+                    <div class="order__office-hours">
+                        <b class="order__office-hours-title">Работаем 24 часа в сутки!</b>
+                        <p>Мы принимаем заявки на перевозку ваших транспортных средств круглосуточно.</p>
+                    </div>
+                </section>
+            </div>
+        </div>
+        <section class="main-description container">
+            <h1 class="main-description__title section-title">
+                <span>ГОСЭВАКУАТОР</span> - лидер рынка услуг эвакуации в @Model.PrepositionalCityName и @Model.PrepositionalAreaName области
+            </h1>
+            <p itemprop="description">
+                Более 10 лет мы оказываем помощь на дорогах!<br>
+                За это время наша компания наработала огромный опыт. Сегодня мы оказываем полный спектр услуг начиная от эвакуации мотоциклов до грузовиков. Грамотный диспетчер выберет именно тот тип эвакуатора, который необходим в вашей дорожной ситуации, а команда профессиональных эвакуаторщиков с легкостью справиться с поставленной задачей в кратчайшие сроки. Благодаря слаженным действиям нашей команды вы получаете эвакуатор по низкой цене!
+            </p>
+        </section>
+        <div class="services-layout">
+            <section class="services container" id="services">
+                <h2 class="services__title section-title">Наши услуги</h2>
+                <ul class="services__list list">
+                    <li class="services__list-item">
+                        <span class="services__number">1</span>
+                        <span class="services__text">Срочная<br>эвакуация</span>
+                    </li>
+                    <li class="services__list-item">
+                        <span class="services__number">2</span>
+                        <span class="services__text">Перевозка новых<br>автомобилей</span>
+                    </li>
+                    <li class="services__list-item">
+                        <span class="services__number">3</span>
+                        <span class="services__text">Оказание помощи<br>на дороге</span>
+                    </li>
+                    <li class="services__list-item">
+                        <span class="services__number">4</span>
+                        <span class="services__text">Оценка ущерба<br>после ДТП</span>
+                    </li>
+                    <li class="services__list-item">
+                        <span class="services__number">5</span>
+                        <span class="services__text">Эвакуация с краном-<br>манипулятором</span>
+                    </li>
+                    <li class="services__list-item">
+                        <span class="services__number">6</span>
+                        <span class="services__text">Утилизация<br>транспорта</span>
+                    </li>
+                </ul>
+            </section>
+        </div>
+        <div class="call-us-layout">
+            <div class="call-us container">
+                <span class="call-us__text">Мы поможем в вашей ситуации, звоните:</span>
+                <a class="call-us__phone" href="tel:@Model.PhoneNumber">@Model.FormattedPhoneNumber</a>
+            </div>
+        </div>
+        <div class="trust-layout">
+            <section class="trust container">
+                <h3 class="trust__title section-title">Вы можете быть уверены в нас!</h3>
+                <p class="trust__description">Почему среди множества компаний Клиенты выбирают нас?</p>
+                <ul class="trust__list">
+                    <li class="trust__list-item trust__low-cost">Самые низкие тарифы на эвакуацию в @Model.PrepositionalCityName</li>
+                    <li class="trust__list-item trust__quik-supply">Оперативная подача<span class="annotation"> (от 20 минут)</span></li>
+                    <li class="trust__list-item trust__careful-handling">Бережное обращение с вашим автомобилем</li>
+                    <li class="trust__list-item trust__insurance">Мы страхуем Ваш автомобиль на время перевозки</li>
+                </ul>
+            </section>
+        </div>
+        <section class="transported-vehicle container">
+            <h3 class="transported-vehicle__title section-title">Нам доверяют</h3>
+            <ul class="transported-vehicle__list">
+                <li class="transported-vehicle__list-item vehicle__bike">Мототехнику</li>
+                <li class="transported-vehicle__list-item vehicle__car">Легковые автомобили</li>
+                <li class="transported-vehicle__list-item vehicle__suv">Минивэны и внедорожники</li>
+                <li class="transported-vehicle__list-item vehicle__bus">Автобусы</li>
+            </ul>
+        </section>
+        <div class="low-cost-guarantee-layout">
+            <div class="low-cost-guarantee container">
+                <p class="their-price">Цена у всех: <span class="their-price-value">@Model.SelectedPricelistItem.LoadingVehicleFromOther</span><span class="their-price-units"> ₽.*</span></p>
+                <p class="our-price">Цена у нас: <span class="our-price-value">@Model.SelectedPricelistItem.LoadingVehicle</span><span class="our-price-units"> ₽.*</span></p>
+                <p class="remark">* Тариф действителен в пределах одного района. Мы гарантируем низкие расценки и безупречное качество оказания услуг! Звоните!</p>
+            </div>
+        </div>
+        <div class="calculate-layout bottom-line" id="calculate">
+            <div class="container">
+                <section class="calculate">
+                    <h2 class="calculate__title section-title">Расчет цены</h2>
+                    <span class="calculate__description">за 30 секунд:</span>
+
+                    @{ await Html.RenderPartialAsync("_Calculate", new GosEvakuator.Models.HomeViewModels.CalculateViewModel()); }
+
+                    <div class="calculate__promotion">
+                        <p class="cost">Цена эвакуатора</p>
+                        <p class="procent">На 10% ниже</p>
+                        <p class="competitors">Чем у конкурентов</p>
+                        <p class="justification">Многолетний опыт и отлаженный рабочий процесс позволяют сделать тарифы на наши услуги в среднем на 10% ниже, чем у конкурентов.</p>
+                    </div>
+                </section>
+            </div>
+        </div>
+        <div class="autopark-layout bottom-line">
+            <section class="autopark container">
+                <h2 class="autopark__title section-title">Наш автопарк</h2>
+                <span class="autopark__description">Наш автопарк содержит только надежные технически исправные средства, что бы путь до точки назначения вашего автомобиля был безопасен:</span>
+                <ul class="autopark__list list">
+                    <li class="autopark__evacuator-with-winch autopark__list-item">
+                        <img itemprop="image" src="img/evacuator-with-winch.jpg" width="240" height="112" alt="Эвакуатор с лебедкой">
+                        <b>Эвакуатор с лебедкой</b>
+                    </li>
+                    <li class="autopark__evacuator-with-sliding-platform autopark__list-item">
+                        <img itemprop="image" src="img/evacuator-with-sliding-platform.jpg" width="320" height="113" alt="Эвакуатор со сдвижной платформой">
+                        <b>Эвакуатор со сдвижной платформой</b>
+                    </li>
+                    <li class="autopark__evacuator-manipulator autopark__list-item">
+                        <img itemprop="image" src="img/evacuator-manipulator.jpg" width="320" height="164" alt="Эвакуатор с краном-манипулятором">
+                        <b>Эвакуатор с краном-манипулятором</b>
+                    </li>
+                </ul>
+            </section>
+        </div>
+        <section class="reviews container " id="reviews">
+            <h2 class="section-title">Отзывы о нас</h2>
+            <dl class="reviews__list">
+                <dt class="reviews__driver1 reviews__driver">
+                    <span class="reviews__name">Владимир</span>
+                    <span class="reviews__date">23 апреля 2017</span>
+                </dt>
+                <dd class="reviews__text">Нужен был недорогой эвакуатор, чтобы доставить машину из центра @Model.PrepositionalAreaName области в сервис. Нашел обявление данного сайта, как и обещал диспетчер, эвакуатор приехал в течении 35 минут. Я очень дорожу своей машиной, поэтому внимательно наблюдал за процессом погрузки. Но мои опасения были напрасными т.к. было видно, что эвакуаторщик хорошо знал свое дело. Спасибо за помощь! Рекомендую!</dd>
+
+                <dt class="reviews__driver2 reviews__driver">
+                    <span class="reviews__name">Алексей</span>
+                    <span class="reviews__date">14 марта 2017</span>
+                </dt>
+                <dd class="reviews__text">Машина заглохла ночью прямо на перекрестке. В @Model.PrepositionalCityName недавно, потому растерялся и не знал куда обратиться. В интернете нашел телефон ГОСЭВАКУАТОРа, не смотря на звонок поздней ночью, диспетчер был приветлив и внимателен к моей проблеме. Эвакуатор конечно пришлось подождать, около часа, но другие вообще не брали трубку или отказывались ехать. Спасибо, что не заломили цену за ночной тариф!</dd>
+
+                <dt class="reviews__driver3 reviews__driver">
+                    <span class="reviews__name">Иван</span>
+                    <span class="reviews__date">2 февраля 2017</span>
+                </dt>
+                <dd class="reviews__text">Часто службы эвакуации изначально занижают цену, что бы она казалась более привлекательной. Такого же подвоха ожидал и с этой компанией, но начальная цена оказалась конечной. Всем удачи на дорогах, ну а если уж потребовалась помощь, звоните в ГОСЭВАКУАТОР, рекомендую!</dd>
+            </dl>
+        </section>
+    </main>
+    <div class="footer-layout">
+        <footer class="footer container">
+            <div class="footer-company footer__item">
+                <p class="footer-company__about">Компания ООО «ТРАНСПОРТНЫЕ СИСТЕМЫ»</p>
+                <p class="footer-company__about">ОГРН: 1177627021373</p>
+                <p class="footer-company__about">ИНН: 7610124730</p>
+                <p class="footer-company__about">КПП: 761001001</p>
+                <p class="footer-company__author">© 2005–@Model.CurrentYear Все права защищены</p>
+            </div>
+            <div class="footer__user-block footer__item">
+                <ul class="footer__user-block-list list">
+                    <li><a href="#services">Услуги</a></li>
+                    <li><a href="#calculate">Цены</a></li>
+                    <li><a href="#reviews">Отзывы</a></li>
+                </ul>
+            </div>
+            <div class="footer-feedback footer__item">
+                <p>Обратная связь:</p>
+                <a class="fotter-feedback__email" itemprop="email" href="mailto:mail@gosevakuator.ru">mail@gosevakuator.ru</a>
+            </div>
+        </footer>
+    </div>
+    <div class="modal_overlay"></div>
+    <div class="modal-order modal-view">
+        <div class="modal-order__indicator">
+            <div class="indicator__spinner">
+                <div class="double-bounce1"></div>
+                <div class="double-bounce2"></div>
+            </div>
+            <div class="indicator__success">
+            </div>
+            <div class="indicator__error">
+            </div>
+        </div>
+        <p class="model-order__title">Заявка успешно принята!</p>
+        <p class="model-order__message">В течение 3 минут мы перезвоним вам</p>
+        <a class="model-order__contact-phone" href="tel:@Model.PhoneNumber">@Model.FormattedPhoneNumber</a>
+        <button class="model-order__close btn" type="button" title="Закрыть">Закрыть</button>
+    </div>
+</div>

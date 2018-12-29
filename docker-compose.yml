@@ -1,0 +1,19 @@
+version: '2.1'
+
+services:
+  db:
+    image: mcr.microsoft.com/mssql/server:2017-latest
+    restart: always
+    environment:
+      ACCEPT_EULA: Y
+      SA_PASSWORD: 1234567890P#
+    ports:
+      - 1433:1433
+    container_name: sql2
+  gosevakuator:
+    image: ${DOCKER_REGISTRY-}gosevakuator
+    ports:
+      - 80:80
+    build:
+      context: .
+      dockerfile: src/GosEvakuator/Dockerfile

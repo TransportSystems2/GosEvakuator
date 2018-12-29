@@ -1,0 +1,60 @@
+@model GosEvakuator.Models.PricelistItem
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PricelistItem</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Alias)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Alias)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Discount)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Discount)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.LockedWheel)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.LockedWheel)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.LockedSteeringWheel)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.LockedSteeringWheel)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.LoadingVehicle)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.LoadingVehicle)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PerKilometer)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PerKilometer)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.ID">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

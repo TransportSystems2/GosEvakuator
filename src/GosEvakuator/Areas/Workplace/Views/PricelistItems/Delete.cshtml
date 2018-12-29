@@ -1,0 +1,65 @@
+@model GosEvakuator.Models.PricelistItem
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>PricelistItem</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <input type="hidden" asp-for="ID" />
+        <dt>
+            @Html.DisplayNameFor(model => model.Alias)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Alias)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Discount)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Discount)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.LockedWheel)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.LockedWheel)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.LockedSteeringWheel)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.LockedSteeringWheel)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.LoadingVehicle)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.LoadingVehicle)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PerKilometer)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PerKilometer)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            <a asp-action="Index">Back to List</a>
+        </div>
+    </form>
+</div>

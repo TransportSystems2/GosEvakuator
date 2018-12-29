@@ -1,0 +1,67 @@
+@model GosEvakuator.Models.Order
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create</h2>
+
+<form asp-action="Create">
+    <div class="form-horizontal">
+        <h4>Order</h4>
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="CityID" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <select asp-for="CityID" class ="form-control" asp-items="ViewBag.CityID"></select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="CustomerID" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <select asp-for="CustomerID" class ="form-control" asp-items="ViewBag.CustomerID"></select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Distance" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Distance" class="form-control" />
+                <span asp-validation-for="Distance" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="PlaceArrival" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="PlaceArrival" class="form-control" />
+                <span asp-validation-for="PlaceArrival" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="PlaceDeparture" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="PlaceDeparture" class="form-control" />
+                <span asp-validation-for="PlaceDeparture" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="VehicleID" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <select asp-for="VehicleID" class ="form-control" asp-items="ViewBag.VehicleID"></select>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

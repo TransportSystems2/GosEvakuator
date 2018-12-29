@@ -1,0 +1,82 @@
+@model GosEvakuator.Models.PricelistItem
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<form asp-action="Edit">
+    <div class="form-horizontal">
+        <h4>PricelistItem</h4>
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="ID" />
+        <div class="form-group">
+            <label asp-for="PricelistID" class="control-label col-md-2"></label>
+            <div class="col-md-10">
+                <select asp-for="PricelistID" class="form-control" asp-items="ViewBag.PricelistID"></select>
+                <span asp-validation-for="PricelistID" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Alias" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Alias" class="form-control" />
+                <span asp-validation-for="Alias" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Name" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Discount" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Discount" class="form-control" />
+                <span asp-validation-for="Discount" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="LockedWheel" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="LockedWheel" class="form-control" />
+                <span asp-validation-for="LockedWheel" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="LockedSteeringWheel" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="LockedSteeringWheel" class="form-control" />
+                <span asp-validation-for="LockedSteeringWheel" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="LoadingVehicle" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="LoadingVehicle" class="form-control" />
+                <span asp-validation-for="LoadingVehicle" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="PerKilometer" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="PerKilometer" class="form-control" />
+                <span asp-validation-for="PerKilometer" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
