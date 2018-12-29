@@ -12,8 +12,6 @@ services:
     container_name: sql2
   gosevakuator:
     image: ${DOCKER_REGISTRY-}gosevakuator
-    ports:
-      - 80:80
     build:
       context: .
       dockerfile: src/GosEvakuator/Dockerfile
